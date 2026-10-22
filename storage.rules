@@ -1,0 +1,11 @@
+rules_version = '2';
+
+// No browser file access is implemented in this foundation.
+// This is a local template, not a replacement for the existing platform's rules.
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{object=**} {
+      allow read, write: if false;
+    }
+  }
+}
